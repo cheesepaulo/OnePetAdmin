@@ -1,7 +1,8 @@
 FROM ruby:2.4.2-slim
-# Instala nossas dependencias
+# Instala nossas dependencias e limpa o cache
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
-      build-essential nodejs libpq-dev imagemagick libmagickwand-dev
+    build-essential nodejs libpq-dev imagemagick libmagickwand-dev \
+    && rm -rf /var/lib/apt /var/ lib/dpkg /var/lib/cache /var/lib/log
 # Seta nosso path
 ENV INSTALL_PATH /petadmin
 # Cria nosso diretório
