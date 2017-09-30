@@ -2,7 +2,7 @@ version: '2'
 
 services:
   postgres:
-    image: 'onjin/alpine-postgres:9.5'
+    image: 'postgres:9.6-alpine'
     volumes:
       - 'postgres:/var/lib/postgresql/data'
 
