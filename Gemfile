@@ -30,6 +30,8 @@ gem 'redis', '~> 3.0'
 gem 'sidekiq'
 # CMS for Rails. For Reals.
 gem 'fae-rails'
+# Dynamic nested forms using jQuery made easy
+gem "cocoon"
 
 
 group :development, :test do
