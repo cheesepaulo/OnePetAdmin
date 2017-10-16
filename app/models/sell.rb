@@ -9,6 +9,8 @@ class Sell < ApplicationRecord
   has_many :sell_products, dependent: :destroy
   has_many :products, through: :sell_products
 
+  accepts_nested_attributes_for :sell_products, reject_if: :all_blank, allow_destroy: true
+
   has_many :sell_services, dependent: :destroy
   has_many :services, through: :sell_services
 
@@ -26,7 +28,7 @@ class Sell < ApplicationRecord
 
   def set_total
     total = 0
-    self.products.each {|p| total += p.price }
+    self.products.each {|p| total += p.quantity * p.price }
     self.services.each {|s| total += s.price }
 
     if self.discount.present?

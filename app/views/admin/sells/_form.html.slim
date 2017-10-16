@@ -4,7 +4,13 @@
   == render 'fae/shared/errors'
 
   main.content
-    = fae_association f, :products
+    #products.cocoon
+      h1 Products
+      = f.simple_fields_for :sell_products do |product|
+        = render 'sell_product_fields', f: product
+      .links
+        = link_to_add_association 'Add product', f, :sell_products
+
     = fae_association f, :services
     = fae_association f, :discount
     = fae_association f, :client
