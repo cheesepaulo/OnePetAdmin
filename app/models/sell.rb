@@ -28,7 +28,7 @@ class Sell < ApplicationRecord
 
   def set_total
     total = 0
-    self.products.each {|p| total += p.quantity * p.price }
+    self.sell_products.each {|p| total += p.quantity * p.product.price }
     self.services.each {|s| total += s.price }
 
     if self.discount.present?
