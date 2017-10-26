@@ -3,8 +3,7 @@ class Address < ApplicationRecord
 
   belongs_to :client
 
-  validates_presence_of :street, :neighborhood, :client
-
+  validates_presence_of :street, :neighborhood
   def fae_display_field
     id
   end
